@@ -11,6 +11,7 @@ public class Tower : MonoBehaviour
     [SerializeField] GameObject baseProjectile;
     [SerializeField] float baseShotDelay = 10;
     [SerializeField] float shotDelay = 0;
+    [SerializeField] Quaternion shotOffsetRotation;
     LayerMask enemyLayer;
 
     void Awake()
@@ -52,8 +53,10 @@ public class Tower : MonoBehaviour
 
     public void Shoot()
     {
+        //Quaternion shotRotation = new Quaternion(projectileSpawnPos.rotation.x + shotOffsetRotation.x, projectileSpawnPos.rotation.y + shotOffsetRotation.y, projectileSpawnPos.rotation.z + shotOffsetRotation.z, projectileSpawnPos.rotation.w + shotOffsetRotation.w);
+        //GameObject shot = GameObject.Instantiate(projectile, projectileSpawnPos.transform.position, shotRotation);
         GameObject shot = GameObject.Instantiate(projectile, projectileSpawnPos.transform.position, projectileSpawnPos.rotation);
-        shot.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * shot.GetComponent<Projectile>().speed, ForceMode.Impulse);
+        shot.GetComponent<Rigidbody>().AddForce(projectileSpawnPos.transform.forward * shot.GetComponent<Projectile>().speed, ForceMode.Impulse);
     }
 
     public void takeDamage(int damage, string type, bool isNonLethal = false)
