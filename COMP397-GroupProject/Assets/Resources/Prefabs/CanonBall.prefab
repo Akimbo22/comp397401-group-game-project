@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
   life: 4
-  speed: 3
+  speed: 6
   pierce: 0
   isActive: 0
   properties: 

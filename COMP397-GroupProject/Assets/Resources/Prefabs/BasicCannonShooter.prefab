@@ -50,7 +50,7 @@ MonoBehaviour:
   range: 10
   maxHealth: 3
   health: 0
-  projectileDamage: 1
+  projectileDamage: 5
   projectile: {fileID: 465374159889490675, guid: 8d2454a4dc74b2449ac1f3d14f09b8b4, type: 3}
   baseProjectile: {fileID: 465374159889490675, guid: 8d2454a4dc74b2449ac1f3d14f09b8b4, type: 3}
   baseShotDelay: 10
