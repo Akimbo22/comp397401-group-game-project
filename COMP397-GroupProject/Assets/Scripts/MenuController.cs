@@ -23,12 +23,11 @@ public class MenuController : MonoBehaviour
         talkSheriff.SetActive(false);
     }
 
-    // Remove this comment and add level scene when finished
-    // In the future, add level select
-    //public void OnPlayGame()
-    //{
-    //    SceneManager.LoadScene();
-    //}
+
+    public void OnPlayGame()
+    {
+        SceneManager.LoadScene("Wave 1-1");
+    }
 
     // Waiting to see if professor has method of adjusting volume before implementing this
     //public void OpenOptions()
