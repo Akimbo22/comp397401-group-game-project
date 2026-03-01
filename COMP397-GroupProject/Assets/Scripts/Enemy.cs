@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+<<<<<<< HEAD
     [Header("Movement")]
     public float moveSpeed = 2f;
     public float attackDistance = 3.5f;
@@ -104,3 +105,7 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
     }
 }
+=======
+    
+}
+>>>>>>> 16e3405c35b14b645687d9d094ab624863deddd3

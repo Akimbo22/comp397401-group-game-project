@@ -405,6 +405,10 @@ MonoBehaviour:
   baseShotDelay: 10
   shotDelay: 0
   shotOffsetRotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+<<<<<<< HEAD
+=======
+  isPlayerTower: 1
+>>>>>>> 16e3405c35b14b645687d9d094ab624863deddd3
 --- !u!114 &1198951226377981501
 MonoBehaviour:
   m_ObjectHideFlags: 0
