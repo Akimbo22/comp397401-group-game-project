@@ -1,4 +1,6 @@
+using Unity.VectorGraphics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Tower : MonoBehaviour
 {
@@ -12,6 +14,8 @@ public class Tower : MonoBehaviour
     [SerializeField] float baseShotDelay = 10;
     [SerializeField] float shotDelay = 0;
     [SerializeField] Quaternion shotOffsetRotation;
+    [SerializeField] private bool isPlayerTower;
+    [SerializeField] AudioController audioController;
     LayerMask enemyLayer;
 
     void Awake()
@@ -57,13 +61,14 @@ public class Tower : MonoBehaviour
         //GameObject shot = GameObject.Instantiate(projectile, projectileSpawnPos.transform.position, shotRotation);
         GameObject shot = GameObject.Instantiate(projectile, projectileSpawnPos.transform.position, projectileSpawnPos.rotation);
         shot.GetComponent<Rigidbody>().AddForce(projectileSpawnPos.transform.forward * shot.GetComponent<Projectile>().speed, ForceMode.Impulse);
+        audioController.PlayShootSFX();
     }
 
     public void takeDamage(int damage, string type, bool isNonLethal = false)
     {
         //
 
-
+        audioController.PlayHitSFX();
         health -= damage;
         if (health < 0 && isNonLethal) health = 1;
         else
@@ -74,6 +79,14 @@ public class Tower : MonoBehaviour
 
     public void OnDeath()
     {
-
+        if (!isPlayerTower)
+        {
+            audioController.PlayDeathSFX();
+            Destroy(gameObject);
+        }
+        else
+        {
+            SceneManager.LoadScene("GameOverScene");
+        }
     }
 }
