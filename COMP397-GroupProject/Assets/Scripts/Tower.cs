@@ -1,10 +1,8 @@
-<<<<<<< HEAD
 using UnityEngine;
-=======
+
 using Unity.VectorGraphics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
->>>>>>> 16e3405c35b14b645687d9d094ab624863deddd3
 
 public class Tower : MonoBehaviour
 {
@@ -18,11 +16,10 @@ public class Tower : MonoBehaviour
     [SerializeField] float baseShotDelay = 10;
     [SerializeField] float shotDelay = 0;
     [SerializeField] Quaternion shotOffsetRotation;
-<<<<<<< HEAD
-=======
+
     [SerializeField] private bool isPlayerTower;
     [SerializeField] AudioController audioController;
->>>>>>> 16e3405c35b14b645687d9d094ab624863deddd3
+
     LayerMask enemyLayer;
 
     void Awake()
@@ -68,21 +65,21 @@ public class Tower : MonoBehaviour
         //GameObject shot = GameObject.Instantiate(projectile, projectileSpawnPos.transform.position, shotRotation);
         GameObject shot = GameObject.Instantiate(projectile, projectileSpawnPos.transform.position, projectileSpawnPos.rotation);
         shot.GetComponent<Rigidbody>().AddForce(projectileSpawnPos.transform.forward * shot.GetComponent<Projectile>().speed, ForceMode.Impulse);
-<<<<<<< HEAD
-=======
+
+
         audioController.PlayShootSFX();
->>>>>>> 16e3405c35b14b645687d9d094ab624863deddd3
+
     }
 
     public void takeDamage(int damage, string type, bool isNonLethal = false)
     {
         //
 
-<<<<<<< HEAD
 
-=======
+
+
         audioController.PlayHitSFX();
->>>>>>> 16e3405c35b14b645687d9d094ab624863deddd3
+
         health -= damage;
         if (health < 0 && isNonLethal) health = 1;
         else
@@ -93,9 +90,9 @@ public class Tower : MonoBehaviour
 
     public void OnDeath()
     {
-<<<<<<< HEAD
 
-=======
+
+
         if (!isPlayerTower)
         {
             audioController.PlayDeathSFX();
@@ -105,6 +102,6 @@ public class Tower : MonoBehaviour
         {
             SceneManager.LoadScene("GameOverScene");
         }
->>>>>>> 16e3405c35b14b645687d9d094ab624863deddd3
+
     }
 }
