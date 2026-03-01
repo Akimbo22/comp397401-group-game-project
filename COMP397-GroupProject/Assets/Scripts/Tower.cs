@@ -1,7 +1,5 @@
 using UnityEngine;
-
 using Unity.VectorGraphics;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Tower : MonoBehaviour
@@ -68,7 +66,6 @@ public class Tower : MonoBehaviour
 
 
         audioController.PlayShootSFX();
-
     }
 
     public void takeDamage(int damage, string type, bool isNonLethal = false)

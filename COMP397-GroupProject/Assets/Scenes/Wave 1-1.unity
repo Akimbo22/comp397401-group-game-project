@@ -2190,11 +2190,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7be1aef134c35674ba1c264a5216e3b6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 17.688229
+      value: 18.19
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7be1aef134c35674ba1c264a5216e3b6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.26
+      value: 5.58
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7be1aef134c35674ba1c264a5216e3b6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4449,6 +4449,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25694b2404ab82444babb40784a30660, type: 3}
+--- !u!114 &813866559 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8088821498268085505, guid: 2d4d2a01376f8644eafb7f548e668393, type: 3}
+  m_PrefabInstance: {fileID: 1920946458}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15fec00e12bda7e43a6f4317fe6f5eb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioController
 --- !u!1 &828390438
 GameObject:
   m_ObjectHideFlags: 0
@@ -5169,6 +5180,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PauseScreen
   menuPanel: {fileID: 9275381}
   isMenuOpen: 0
+--- !u!65 &937696703
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937696699}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5, y: 1, z: 1}
+  m_Center: {x: -0.5, y: 0.5, z: -0.3}
+--- !u!114 &937696704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937696699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aefff3a646bab1543a529d25e031eee2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerHealth
+  maxHealth: 200
+  currentHealth: 0
+  healthSlider: {fileID: 396955070}
+  gameOverSceneName: GameOver
 --- !u!4 &942166270 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3723295863333372615, guid: 25694b2404ab82444babb40784a30660, type: 3}
@@ -8521,7 +8569,7 @@ MonoBehaviour:
   damagePerAttack: 20
   attackCooldown: 3
   attackSound: {fileID: 8300000, guid: 7722a3f255a02b94c9b8606d18d59c14, type: 3}
-  maxHealth: 50
+  maxHealth: 10
 --- !u!114 &1545807725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8551,14 +8599,14 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1
-  m_Height: 3.5
+  m_Height: 10
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -1, y: 0, z: 0}
 --- !u!82 &1545807727
 AudioSource:
   m_ObjectHideFlags: 0
@@ -12969,6 +13017,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 877597246336018954, guid: 80bac0b4f6081434f903f394a0605ee7, type: 3}
+      propertyPath: baseShotDelay
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 877597246336018954, guid: 80bac0b4f6081434f903f394a0605ee7, type: 3}
+      propertyPath: audioController
+      value: 
+      objectReference: {fileID: 813866559}
     - target: {fileID: 1356023380149728255, guid: 80bac0b4f6081434f903f394a0605ee7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.67942
@@ -13015,7 +13071,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3865177616932351227, guid: 80bac0b4f6081434f903f394a0605ee7, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Tower
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13024,6 +13080,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3865177616932351227, guid: 80bac0b4f6081434f903f394a0605ee7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 937696701}
+    - targetCorrespondingSourceObject: {fileID: 3865177616932351227, guid: 80bac0b4f6081434f903f394a0605ee7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 937696703}
+    - targetCorrespondingSourceObject: {fileID: 3865177616932351227, guid: 80bac0b4f6081434f903f394a0605ee7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 937696704}
   m_SourcePrefab: {fileID: 100100000, guid: 80bac0b4f6081434f903f394a0605ee7, type: 3}
 --- !u!1001 &7931127847253391674
 PrefabInstance:
