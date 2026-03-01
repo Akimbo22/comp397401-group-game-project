@@ -1,8 +1,5 @@
 {
-<<<<<<< HEAD
-=======
     "version": 1,
->>>>>>> 16e3405c35b14b645687d9d094ab624863deddd3
     "name": "InputSystem_Actions",
     "maps": [
         {
@@ -76,7 +73,7 @@
                     "name": "Next",
                     "type": "Button",
                     "id": "b7230bb6-fc9b-4f52-8b25-f5e19cb2c2ba",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -476,6 +473,17 @@
                     "action": "Crouch",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "064749b9-050c-40dd-b33b-689f50808b40",
+                    "path": "<Keyboard>/leftCtrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -505,7 +513,16 @@
                     "name": "Cancel",
                     "type": "Button",
                     "id": "15cef263-9014-4fd5-94d9-4e4a6234a6ef",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Menu",
+                    "type": "Button",
+                    "id": "c713f8e5-1bfa-49cc-a218-dd21e552b47c",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -572,18 +589,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-<<<<<<< HEAD
-=======
-                },
-                {
-                    "name": "Menu",
-                    "type": "Button",
-                    "id": "a7fc18d4-0524-4448-90a7-68861480bedd",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
->>>>>>> 16e3405c35b14b645687d9d094ab624863deddd3
                 }
             ],
             "bindings": [
@@ -875,6 +880,28 @@
                 },
                 {
                     "name": "",
+                    "id": "fff10d80-f009-4c96-b9f6-1011fe24d8c2",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "963db864-77ae-4322-9eda-69e918708e23",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "c52c8e0b-8179-41d3-b8a1-d149033bbe86",
                     "path": "<Mouse>/position",
                     "interactions": "",
@@ -1004,31 +1031,34 @@
                     "action": "TrackedDeviceOrientation",
                     "isComposite": false,
                     "isPartOfComposite": false
-<<<<<<< HEAD
-=======
-                },
+                }
+            ]
+        },
+        {
+            "name": "Driving",
+            "id": "e70da754-5b07-4c9a-bbf0-f877351b4b71",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "d6887b8b-c411-499e-beaa-709892fb98bc",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
                 {
                     "name": "",
-                    "id": "683b3ffe-05a0-4dc7-bbe6-976934fa112a",
-                    "path": "<Keyboard>/p",
+                    "id": "9e040233-1583-4d4a-bdbf-f6b0da123260",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Menu",
+                    "groups": "",
+                    "action": "New action",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "d6b0b932-dcfe-4d22-9cb3-33a679c3e224",
-                    "path": "<Keyboard>/tab",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Menu",
-                    "isComposite": false,
-                    "isPartOfComposite": false
->>>>>>> 16e3405c35b14b645687d9d094ab624863deddd3
                 }
             ]
         }
