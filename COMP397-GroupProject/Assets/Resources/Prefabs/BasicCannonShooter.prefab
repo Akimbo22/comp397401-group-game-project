@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tower
   projectileSpawnPos: {fileID: 4254537338823369036}
-  range: 10
+  range: 20
   maxHealth: 3
   health: 0
   projectileDamage: 5
@@ -55,6 +55,9 @@ MonoBehaviour:
   baseProjectile: {fileID: 465374159889490675, guid: 8d2454a4dc74b2449ac1f3d14f09b8b4, type: 3}
   baseShotDelay: 10
   shotDelay: 0
+  shotOffsetRotation: {x: 0, y: 0, z: 0, w: 0}
+  isPlayerTower: 0
+  audioController: {fileID: 0}
 --- !u!1 &8072701460822388183
 GameObject:
   m_ObjectHideFlags: 0
