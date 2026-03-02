@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GameController : MonoBehaviour
+public class GameController : PersistantSingleton<GameController>
 {
     [SerializeField] private GameObject[] enemySpawnPoints;
 

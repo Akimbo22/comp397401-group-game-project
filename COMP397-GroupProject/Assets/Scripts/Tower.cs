@@ -12,8 +12,18 @@ public class Tower : MonoBehaviour
     [SerializeField] GameObject projectile;
     [SerializeField] GameObject baseProjectile;
     [SerializeField] float baseShotDelay = 10;
-    [SerializeField] float shotDelay = 0;
+    [SerializeField] float shotDelay;
+    private float shotDelayTick = 0;
     [SerializeField] Quaternion shotOffsetRotation;
+
+    public enum CostType
+    {
+        Gold = 0,
+        Crystal = 1,
+        Oil = 2
+    }
+    [SerializeField] CostType costType;
+    [SerializeField] int cost;
 
     [SerializeField] private bool isPlayerTower;
     [SerializeField] AudioController audioController;
@@ -27,8 +37,10 @@ public class Tower : MonoBehaviour
 
     void Start()
     {
+        if (shotDelay < 0) shotDelay = baseShotDelay;
         if (maxHealth < 0) maxHealth = 1;
         health = maxHealth;
+        if (cost < 0) cost = 0;
     }
 
     public void setProjectile(GameObject _projecitle) { projectile = _projecitle; }
@@ -38,43 +50,49 @@ public class Tower : MonoBehaviour
     {
         if (Physics.Linecast(projectileSpawnPos.position,(projectileSpawnPos.forward * range) + new Vector3(projectileSpawnPos.position.x, projectileSpawnPos.position.y, 0),enemyLayer))
         {
-            if (shotDelay <= 0)
+            if (shotDelayTick <= 0)
             {
-                shotDelay = 0;
+                shotDelayTick = 0;
                 Shoot();
-                shotDelay = baseShotDelay;
+                shotDelayTick = shotDelay;
             }
         }
-        if (shotDelay > 0) shotDelay -= Time.deltaTime;
+        if (shotDelayTick > 0) shotDelayTick -= Time.deltaTime;
     }
 
+    //Draw range in editor
     private void OnDrawGizmos()
     {
         if (!enabled || range <= 0) return;
-        //Gizmos.DrawLine(projectileSpawnPos.position, new Vector3(projectileSpawnPos.position.x, projectileSpawnPos.position.y, projectileSpawnPos.position.z + range));
         Gizmos.DrawLine(projectileSpawnPos.position, (projectileSpawnPos.forward * range) + new Vector3(projectileSpawnPos.position.x,projectileSpawnPos.position.y,0));
-        //Gizmos.DrawWireCube(new Vector3(projectileSpawnPos.position.x, projectileSpawnPos.position.y, projectileSpawnPos.position.z + (range / 2)), new Vector3(0.5f, 0.5f, range));
-        //Gizmos.DrawWireCube((projectileSpawnPos.position + (projectileSpawnPos.forward * range)) / 2, new Vector3(0.5f, 0.5f, range));
     }
 
-    public void Shoot()
+    ///Shoots a Projectile, if no GameObject is passed under _projectile then it shoots the tower's default projectile
+    ///Applies special projectile modifiers propertiesModifiers if any are passed
+    public void Shoot(GameObject _projectile = null, Projectile.ProjectileProperties[] propertiesModifiers = null)
     {
-        //Quaternion shotRotation = new Quaternion(projectileSpawnPos.rotation.x + shotOffsetRotation.x, projectileSpawnPos.rotation.y + shotOffsetRotation.y, projectileSpawnPos.rotation.z + shotOffsetRotation.z, projectileSpawnPos.rotation.w + shotOffsetRotation.w);
-        //GameObject shot = GameObject.Instantiate(projectile, projectileSpawnPos.transform.position, shotRotation);
+        if (_projectile == null) _projectile = projectile;
+
         GameObject shot = GameObject.Instantiate(projectile, projectileSpawnPos.transform.position, projectileSpawnPos.rotation);
         shot.GetComponent<Rigidbody>().AddForce(projectileSpawnPos.transform.forward * shot.GetComponent<Projectile>().speed, ForceMode.Impulse);
 
+        if (propertiesModifiers != null)
+        {
+
+        }
 
         audioController.PlayShootSFX();
     }
 
+
+
+    public void OnPlaced()
+    {
+
+    }
+
     public void takeDamage(int damage, string type, bool isNonLethal = false)
     {
-        //
-
-
-
-
         audioController.PlayHitSFX();
 
         health -= damage;
@@ -87,9 +105,6 @@ public class Tower : MonoBehaviour
 
     public void OnDeath()
     {
-
-
-
         if (!isPlayerTower)
         {
             audioController.PlayDeathSFX();
@@ -99,6 +114,5 @@ public class Tower : MonoBehaviour
         {
             SceneManager.LoadScene("GameOverScene");
         }
-
     }
 }
