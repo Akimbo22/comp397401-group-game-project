@@ -3,6 +3,7 @@ using UnityEngine;
 public class GameController : PersistantSingleton<GameController>
 {
     [SerializeField] private GameObject[] enemySpawnPoints;
+    [SerializeField] private GameObject[] Resources;
 
     public void SpawnEnemy(int row = -1, Enemy _enemy = null)
     {
