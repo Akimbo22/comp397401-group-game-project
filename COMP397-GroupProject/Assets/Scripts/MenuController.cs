@@ -6,7 +6,7 @@ public class MenuController : MonoBehaviour
     public GameObject startGame;
     public GameObject options;
     public GameObject quitGame;
-    //public GameObject optionsWindow;
+    public GameObject optionsWindow;
     public GameObject talkBanker;
     public GameObject talkBarkeep;
     public GameObject talkSheriff;
@@ -17,7 +17,7 @@ public class MenuController : MonoBehaviour
         startGame.SetActive(true);
         options.SetActive(false);
         quitGame.SetActive(false);
-        //optionsWindow.SetActive(false);
+        optionsWindow.SetActive(false);
         talkBanker.SetActive(false);
         talkBarkeep.SetActive(false);
         talkSheriff.SetActive(false);
@@ -29,11 +29,11 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene("Wave 1-1");
     }
 
-    // Waiting to see if professor has method of adjusting volume before implementing this
-    //public void OpenOptions()
-    //{
-    //    optionsWindow.SetActive(true);
-    //}
+
+    public void OpenOptions()
+    {
+        optionsWindow.SetActive(true);
+    }
 
     public void OnQuitGame()
     {
@@ -49,7 +49,7 @@ public class MenuController : MonoBehaviour
         startGame.SetActive(false);
         options.SetActive(true);
         quitGame.SetActive(false);
-        //optionsWindow.SetActive(false);
+        optionsWindow.SetActive(false);
         talkBanker.SetActive(false);
         talkBarkeep.SetActive(false);
         talkSheriff.SetActive(false);
@@ -60,7 +60,7 @@ public class MenuController : MonoBehaviour
         startGame.SetActive(true);
         options.SetActive(false);
         quitGame.SetActive(false);
-        //optionsWindow.SetActive(false);
+        optionsWindow.SetActive(false);
         talkBanker.SetActive(false);
         talkBarkeep.SetActive(false);
         talkSheriff.SetActive(false);
@@ -71,7 +71,7 @@ public class MenuController : MonoBehaviour
         startGame.SetActive(false);
         options.SetActive(false);
         quitGame.SetActive(true);
-        //optionsWindow.SetActive(false);
+        optionsWindow.SetActive(false);
         talkBanker.SetActive(false);
         talkBarkeep.SetActive(false);
         talkSheriff.SetActive(false);
@@ -95,5 +95,6 @@ public class MenuController : MonoBehaviour
         talkBanker.SetActive(false);
         talkSheriff.SetActive(false);
         talkBarkeep.SetActive(false);
+        optionsWindow.SetActive(false);
     }
 }
