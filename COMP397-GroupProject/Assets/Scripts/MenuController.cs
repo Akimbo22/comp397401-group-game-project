@@ -26,7 +26,7 @@ public class MenuController : MonoBehaviour
 
     public void OnPlayGame()
     {
-        SceneManager.LoadScene("Wave 1-1");
+        SceneManager.LoadScene("Wave 1-1Alt");
     }
 
 

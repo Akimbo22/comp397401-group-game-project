@@ -1134,7 +1134,7 @@ PrefabInstance:
     - target: {fileID: 1345973846805347455, guid: 10a7115607a032842b2c251fb68555ee, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1806798936}
     - target: {fileID: 1345973846805347455, guid: 10a7115607a032842b2c251fb68555ee, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: updateMusicVolume
@@ -1142,7 +1142,7 @@ PrefabInstance:
     - target: {fileID: 2673405004096946907, guid: 10a7115607a032842b2c251fb68555ee, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1806798936}
     - target: {fileID: 2673405004096946907, guid: 10a7115607a032842b2c251fb68555ee, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: updateSFXVolume
@@ -1240,6 +1240,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10a7115607a032842b2c251fb68555ee, type: 3}
+--- !u!114 &247153121 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2673405004096946907, guid: 10a7115607a032842b2c251fb68555ee, type: 3}
+  m_PrefabInstance: {fileID: 247153120}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
+--- !u!114 &247153122 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1345973846805347455, guid: 10a7115607a032842b2c251fb68555ee, type: 3}
+  m_PrefabInstance: {fileID: 247153120}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1001 &252215763
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10251,7 +10273,7 @@ PrefabInstance:
     - target: {fileID: 7459273106729036684, guid: 25a2b038070e96e4b9dda94779a1b681, type: 3}
       propertyPath: sfxSlider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 247153121}
     - target: {fileID: 7459273106729036684, guid: 25a2b038070e96e4b9dda94779a1b681, type: 3}
       propertyPath: sfxSource
       value: 
@@ -10259,7 +10281,7 @@ PrefabInstance:
     - target: {fileID: 7459273106729036684, guid: 25a2b038070e96e4b9dda94779a1b681, type: 3}
       propertyPath: musicSlider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 247153122}
     - target: {fileID: 7459273106729036684, guid: 25a2b038070e96e4b9dda94779a1b681, type: 3}
       propertyPath: musicSource
       value: 
@@ -10269,6 +10291,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25a2b038070e96e4b9dda94779a1b681, type: 3}
+--- !u!114 &1806798936 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7459273106729036684, guid: 25a2b038070e96e4b9dda94779a1b681, type: 3}
+  m_PrefabInstance: {fileID: 1806798935}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d55fa3c36f90a734698f19622c5d37a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VolumeController
 --- !u!4 &1822199289 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3723295863333372615, guid: 25694b2404ab82444babb40784a30660, type: 3}
