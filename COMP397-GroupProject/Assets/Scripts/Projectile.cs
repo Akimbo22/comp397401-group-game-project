@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
     public float speed = 20f;
     public int damage = 5;
     public float life = 5f;
+    public bool destroyOnCollission = true;
 
     [Header("Audio")]
     public AudioClip hitSFX; // optional, plays when hitting enemy
@@ -40,7 +41,7 @@ public class Projectile : MonoBehaviour
                 enemy.TakeDamage(damage, hitSFX);
                 Debug.Log("?? Hit enemy for " + damage);
 
-                Destroy(gameObject);
+                if (destroyOnCollission) Destroy(gameObject);
                 return;
             }
         }

@@ -83,7 +83,7 @@ MonoBehaviour:
     m_Bits: 64
   projectilePrefab: {fileID: 3892021417080008841, guid: 401f82bb785f7f94f99fa0c0773d062b, type: 3}
   firePoint: {fileID: 1302822414353292918}
-  fireRate: 1.5
+  fireRate: 0.5
 --- !u!1001 &2726226784959819000
 PrefabInstance:
   m_ObjectHideFlags: 0
