@@ -15,42 +15,31 @@ public class Enemy : MonoBehaviour
     public float maxHealth = 50f;
     private float currentHealth;
 
+    [Header("Death Audio")]
+    public AudioClip deathSFX; // Plays reliably when enemy dies
+
+    [Header("Target (DRAG THIS IN UNITY)")]
+    [SerializeField] private TowerHealth towerHealth;
+
     private Transform target;
-    private TowerHealth towerHealth;
     private float attackTimer = 0f;
     private AudioSource audioSource;
 
     private void Start()
     {
-        // Find tower by tag
-        GameObject towerObj = GameObject.FindWithTag("Tower");
-        if (towerObj != null)
-        {
-            target = towerObj.transform;
+        currentHealth = maxHealth;
 
-            // Get TowerHealth even if it's on a child
-            towerHealth = towerObj.GetComponent<TowerHealth>();
-            if (towerHealth == null)
-                towerHealth = towerObj.GetComponentInChildren<TowerHealth>();
-
-            if (towerHealth == null)
-                Debug.LogError("TowerHealth component not found on tower or children!");
-        }
-        else
+        if (towerHealth == null)
         {
-            Debug.LogError("No object with tag 'Tower' found!");
+            Debug.LogError("? TowerHealth NOT assigned in Inspector!");
+            return;
         }
 
-        // Setup AudioSource
+        target = towerHealth.transform;
+
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
             audioSource = gameObject.AddComponent<AudioSource>();
-    }
-
-    private void OnEnable()
-    {
-        currentHealth = maxHealth;
-        attackTimer = 0f;
     }
 
     private void Update()
@@ -60,13 +49,9 @@ public class Enemy : MonoBehaviour
         float distance = Vector3.Distance(transform.position, target.position);
 
         if (distance > attackDistance)
-        {
             MoveTowardTarget();
-        }
         else
-        {
             AttackTower();
-        }
     }
 
     private void MoveTowardTarget()
@@ -82,28 +67,51 @@ public class Enemy : MonoBehaviour
 
         if (attackTimer >= attackCooldown)
         {
-            if (towerHealth != null)
-            {
-                // Deal damage
-                towerHealth.TakeDamage(damagePerAttack);
+            towerHealth.TakeDamage(damagePerAttack);
 
-                // Play sound
-                if (attackSound != null && audioSource != null)
-                    audioSource.PlayOneShot(attackSound);
+            if (attackSound != null && audioSource != null)
+                audioSource.PlayOneShot(attackSound);
 
-                Debug.Log("Enemy attacked tower for " + damagePerAttack + " damage. Tower HP: " + towerHealth.currentHealth);
-            }
             attackTimer = 0f;
         }
     }
 
-    public void TakeDamage(float amount)
+    // Called by Projectile.cs when hit
+    public void TakeDamage(float amount, AudioClip hitSound = null)
     {
         currentHealth -= amount;
+
+        // Play hit sound if provided
+        if (hitSound != null)
+            AudioSource.PlayClipAtPoint(hitSound, transform.position, 1f);
+
+        Debug.Log("Enemy HP: " + currentHealth);
+
         if (currentHealth <= 0f)
-            Destroy(gameObject);
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Debug.Log("Enemy died!");
+
+        // Play death sound reliably using a temporary GameObject
+        if (deathSFX != null)
+        {
+            GameObject deathSoundObj = new GameObject("EnemyDeathSound");
+            deathSoundObj.transform.position = transform.position;
+
+            AudioSource audio = deathSoundObj.AddComponent<AudioSource>();
+            audio.clip = deathSFX;
+            audio.spatialBlend = 1f; // 3D sound
+            audio.Play();
+
+            Destroy(deathSoundObj, deathSFX.length);
+        }
+
+        // Destroy the enemy immediately
+        Destroy(gameObject);
     }
 }
-
-
-

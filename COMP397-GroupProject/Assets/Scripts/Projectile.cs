@@ -1,37 +1,51 @@
 using UnityEngine;
 
-[RequireComponent (typeof(Rigidbody))]
+[RequireComponent(typeof(Rigidbody))]
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] float life;
-    public float speed;
-    [SerializeField] float pierce;
-    [SerializeField] bool isActive;
-    public enum ProjectileProperties
-    {
-        None = 0,
-        Homing = 1,
-        IgnoreDamageTypes = 2
-    }
-    [SerializeField] ProjectileProperties[] properties;
+    [Header("Stats")]
+    public float speed = 20f;
+    public int damage = 5;
+    public float life = 5f;
 
-    public void addProjectileProperty(ProjectileProperties[] _property)
+    [Header("Audio")]
+    public AudioClip hitSFX; // optional, plays when hitting enemy
+
+    private Rigidbody rb;
+
+    private void Awake()
     {
-        if (_property.Length < 1) return;
-        for (int i = 0; i < _property.Length; i++)
+        rb = GetComponent<Rigidbody>();
+        rb.useGravity = false;
+        rb.isKinematic = true; // movement handled manually
+    }
+
+    private void Start()
+    {
+        Destroy(gameObject, life);
+    }
+
+    private void Update()
+    {
+        float moveDistance = speed * Time.deltaTime;
+
+        // Raycast forward to ensure fast projectiles hit enemies
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.forward, out hit, moveDistance))
         {
-            
+            Enemy enemy = hit.collider.GetComponentInParent<Enemy>();
+            if (enemy != null)
+            {
+                // Deal damage and pass hit sound
+                enemy.TakeDamage(damage, hitSFX);
+                Debug.Log("?? Hit enemy for " + damage);
+
+                Destroy(gameObject);
+                return;
+            }
         }
-    }
 
-    void Start()
-    {
-        if (life < 0 && life != -1) life = 1;
-    }
-
-    void Update()
-    {
-        if (life <= 0) { Destroy(gameObject); }
-        else { life -= Time.deltaTime; }
+        // Move projectile forward
+        transform.position += transform.forward * moveDistance;
     }
 }
