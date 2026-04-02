@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement; // Needed for scene loading
+using UnityEngine.SceneManagement;
+using System.Collections; // Needed for scene loading
 
 public class TowerHealth : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class TowerHealth : MonoBehaviour
 
     [Header("Game Over")]
     public string gameOverSceneName = "GameOver"; // Name of your Game Over scene
+
+    [Header("On Hit")]
+    public Animator animator;
+    public ParticleSystem effect;
 
     private void Start()
     {
@@ -31,6 +36,9 @@ public class TowerHealth : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+        animator.SetTrigger("Hit");
+        effect.Play();
+
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
@@ -42,6 +50,7 @@ public class TowerHealth : MonoBehaviour
 
         if (currentHealth <= 0f)
         {
+            effect.Stop();
             TowerDestroyed();
         }
     }
