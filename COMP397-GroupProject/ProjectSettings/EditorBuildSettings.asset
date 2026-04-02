@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Variant/Wave 1-1Alt.unity
     guid: 8012e013fe1aa9f4ca7959da8c7ffd1c
   - enabled: 1
+    path: Assets/Scenes/Variant/Wave 1-2.unity
+    guid: 8a04726b4bd673641a6e2638a516fd99
+  - enabled: 1
     path: Assets/Scenes/GameOverScene.unity
     guid: e1a5578152737d34bbc319d764604aec
   - enabled: 1

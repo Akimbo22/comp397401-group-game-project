@@ -97,6 +97,8 @@ public class Enemy : MonoBehaviour
     {
         Debug.Log("Enemy died!");
 
+        KillCounter.Instance.AddKill();
+
         // Play death sound reliably using a temporary GameObject
         if (deathSFX != null)
         {
