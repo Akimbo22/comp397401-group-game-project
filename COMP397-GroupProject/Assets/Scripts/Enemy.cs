@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     private float currentHealth;
 
     [Header("Death Audio")]
-    public AudioClip deathSFX; // Plays reliably when enemy dies
+    public AudioClip deathSFX;
 
     [Header("Target (DRAG THIS IN UNITY)")]
     [SerializeField] private TowerHealth towerHealth;
@@ -76,12 +76,10 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    // Called by Projectile.cs when hit
     public void TakeDamage(float amount, AudioClip hitSound = null)
     {
         currentHealth -= amount;
 
-        // Play hit sound if provided
         if (hitSound != null)
             AudioSource.PlayClipAtPoint(hitSound, transform.position, 1f);
 
@@ -97,9 +95,20 @@ public class Enemy : MonoBehaviour
     {
         Debug.Log("Enemy died!");
 
+        // ? OBSERVER EVENTS
+        if (EventChannelManager.instance != null)
+        {
+            EventChannelManager.instance.onEnemyKilled?.Raise(1);
+
+            // First kill event
+            if (KillCounter.Instance.deathCount == 0)
+            {
+                EventChannelManager.instance.onFirstEnemyKilled?.Raise();
+            }
+        }
+
         KillCounter.Instance.AddKill();
 
-        // Play death sound reliably using a temporary GameObject
         if (deathSFX != null)
         {
             GameObject deathSoundObj = new GameObject("EnemyDeathSound");
@@ -107,13 +116,12 @@ public class Enemy : MonoBehaviour
 
             AudioSource audio = deathSoundObj.AddComponent<AudioSource>();
             audio.clip = deathSFX;
-            audio.spatialBlend = 1f; // 3D sound
+            audio.spatialBlend = 1f;
             audio.Play();
 
             Destroy(deathSoundObj, deathSFX.length);
         }
 
-        // Destroy the enemy immediately
         Destroy(gameObject);
     }
 }

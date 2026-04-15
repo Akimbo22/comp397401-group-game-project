@@ -15,7 +15,7 @@ public class GameController : PersistantSingleton<GameController>
         if (row == -1 && _enemy == null && enemySpawnPoints.Length > 0)
         {
             Enemy enemy = EnemyCollectionPool.Instance.Get();
-            
+
             System.Random r = new System.Random();
             int rand = r.Next(0, enemySpawnPoints.Length);
 
@@ -35,9 +35,20 @@ public class GameController : PersistantSingleton<GameController>
     }
 
     public int GetGold() { return goldNum; }
+
     public void SetGold(int gold)
     {
+        int previousGold = goldNum;
         goldNum = gold;
+
+        int gained = goldNum - previousGold;
+
+        // ? OBSERVER EVENT (GOLD GAINED)
+        if (EventChannelManager.instance != null && gained > 0)
+        {
+            EventChannelManager.instance.onGoldChanged?.Raise(gained);
+        }
+
         string str = "" + GetGold();
         goldResource.GetComponent<TextMeshProUGUI>().SetText(str);
     }

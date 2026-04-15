@@ -22,7 +22,20 @@ public class KillCounter : PersistentSingleton<KillCounter>
     {
         Debug.Log("LEVEL COMPLETE!");
 
+        string currentScene = SceneManager.GetActiveScene().name;
+
+        // ? OBSERVER EVENT (WAVE COMPLETE)
+        if (EventChannelManager.instance != null)
+        {
+            if (currentScene == "Wave 1-1Alt")
+                EventChannelManager.instance.onWaveCompleted?.Raise(1);
+
+            if (currentScene == "Wave 1-2")
+                EventChannelManager.instance.onWaveCompleted?.Raise(2);
+        }
+
         string nextScene = GetNextScene();
+
         SaveLoadSystem.Instance.gameData = new GameData
         {
             fileName = nextScene,
