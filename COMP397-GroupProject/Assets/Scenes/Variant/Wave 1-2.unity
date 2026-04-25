@@ -1159,31 +1159,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3646629195496809607, guid: 10a7115607a032842b2c251fb68555ee, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3646629195496809607, guid: 10a7115607a032842b2c251fb68555ee, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4601547823714197256, guid: 10a7115607a032842b2c251fb68555ee, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4601547823714197256, guid: 10a7115607a032842b2c251fb68555ee, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5848031924397199282, guid: 10a7115607a032842b2c251fb68555ee, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5848031924397199282, guid: 10a7115607a032842b2c251fb68555ee, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5848031924397199282, guid: 10a7115607a032842b2c251fb68555ee, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6087783957538941162, guid: 10a7115607a032842b2c251fb68555ee, type: 3}
       propertyPath: m_Name
@@ -1195,15 +1195,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6861435291796094176, guid: 10a7115607a032842b2c251fb68555ee, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6861435291796094176, guid: 10a7115607a032842b2c251fb68555ee, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6861435291796094176, guid: 10a7115607a032842b2c251fb68555ee, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6948275289816397777, guid: 10a7115607a032842b2c251fb68555ee, type: 3}
       propertyPath: m_Pivot.x
@@ -4239,6 +4239,10 @@ PrefabInstance:
       propertyPath: gameController
       value: 
       objectReference: {fileID: 7141097379978325249}
+    - target: {fileID: 1829656668203000278, guid: a57c0408358b05b4f868594f55b07160, type: 3}
+      propertyPath: shopPanelOverlay
+      value: 
+      objectReference: {fileID: 1295385967}
     - target: {fileID: 1900893453922642496, guid: a57c0408358b05b4f868594f55b07160, type: 3}
       propertyPath: m_Name
       value: UICanvas
@@ -4323,6 +4327,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5116553349313106149, guid: a57c0408358b05b4f868594f55b07160, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8339288394095678693, guid: a57c0408358b05b4f868594f55b07160, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8744779972052779626, guid: a57c0408358b05b4f868594f55b07160, type: 3}
       propertyPath: mainCam
       value: 
@@ -4331,6 +4343,10 @@ PrefabInstance:
       propertyPath: gameController
       value: 
       objectReference: {fileID: 7141097379978325249}
+    - target: {fileID: 8744779972052779626, guid: a57c0408358b05b4f868594f55b07160, type: 3}
+      propertyPath: shopPanelOverlay
+      value: 
+      objectReference: {fileID: 1295385967}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1788982873634797155, guid: a57c0408358b05b4f868594f55b07160, type: 3}
@@ -4929,7 +4945,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &838778452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7649,6 +7665,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3723295863333372615, guid: 25694b2404ab82444babb40784a30660, type: 3}
   m_PrefabInstance: {fileID: 447412828}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1295385967 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6135342712356542566, guid: a57c0408358b05b4f868594f55b07160, type: 3}
+  m_PrefabInstance: {fileID: 759509619}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1297451720 stripped
 Transform:
